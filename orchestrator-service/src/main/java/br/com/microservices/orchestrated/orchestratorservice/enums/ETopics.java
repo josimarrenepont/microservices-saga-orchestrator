@@ -1,4 +1,4 @@
-package br.com.microservices.orchestrated.orchestratorservice;
+package br.com.microservices.orchestrated.orchestratorservice.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,5 +19,5 @@ public enum ETopics {
     INVENTORY_FAIL("inventory-fail"),
     NOTIFY_ENDING("notify-ending");
 
-    private String topic;
+    private final String topic;
 }

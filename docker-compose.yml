@@ -108,7 +108,7 @@ services:
 
   orchestrator-service:
     build: './orchestrator-service'
-    container_name: order-service
+    container_name: orchestrator-service
     depends_on:
       - kafka
     networks:

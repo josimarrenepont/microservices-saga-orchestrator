@@ -97,7 +97,7 @@ public class ProductValidationService {
                 .message(message)
                 .createdAt(LocalDateTime.now())
                 .build();
-        event.addHiystory(history);
+        event.addToHistory(history);
     }
     private void handleFailCurrentNotExecuted(Event event, String message){
         event.setStatus(ROLLBACK_PENDING);

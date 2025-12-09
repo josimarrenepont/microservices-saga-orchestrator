@@ -27,7 +27,7 @@ public class Event {
     private List<History> eventHistory;
     private LocalDateTime createdAt;
 
-    public void addHiystory(History history){
+    public void addToHistory(History history){
         if(isEmpty(eventHistory)){
             eventHistory = new ArrayList<>();
         }

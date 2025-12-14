@@ -1,13 +1,14 @@
 package br.com.microservices.orchestrated.inventoryservice.core.model;
 
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "inventory")
 public class Inventory {
 
@@ -19,5 +20,5 @@ public class Inventory {
     private String productCode;
 
     @Column(nullable = false)
-    private Integer avaliable;
+    private Integer available;
 }

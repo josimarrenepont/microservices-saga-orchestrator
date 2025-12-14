@@ -2,12 +2,14 @@ package br.com.microservices.orchestrated.inventoryservice.core.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "order_inventory")
 public class OrderInventory {
@@ -27,7 +29,7 @@ public class OrderInventory {
     private String transactionId;
 
     @Column(nullable = false)
-    private Integer orderQunatity;
+    private Integer orderQuantity;
 
     @Column(nullable = false)
     private Integer oldQuantity;

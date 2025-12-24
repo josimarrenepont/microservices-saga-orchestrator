@@ -1,12 +1,14 @@
 package br.com.microservices.orchestrated.productvalidationservice.core.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @Builder
 @Entity
 @NoArgsConstructor
@@ -25,23 +27,23 @@ public class Validation {
     private String transactionId;
 
     @Column(nullable = false)
-    private Boolean success;
+    private boolean success;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime creatdAt;
+    private LocalDateTime createdAt;
 
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
     @PrePersist
-    void prePersist(){
+    public void prePersist() {
         var now = LocalDateTime.now();
-        creatdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        createdAt = now;
+        updatedAt = now;
     }
 
     @PreUpdate
-    void preUpdated(){
+    public void preUpdate() {
         updatedAt = LocalDateTime.now();
     }
 }

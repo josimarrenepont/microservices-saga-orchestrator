@@ -11,17 +11,18 @@ public class JsonUtil {
 
     private final ObjectMapper objectMapper;
 
-    public String toJson(Object object){
-        try{
+    public String toJson(Object object) {
+        try {
             return objectMapper.writeValueAsString(object);
-        } catch(Exception ex){
+        } catch (Exception ex) {
             return "";
         }
     }
-    public Event toEvent(String json){
-        try{
+
+    public Event toEvent(String json) {
+        try {
             return objectMapper.readValue(json, Event.class);
-        } catch(Exception ex){
+        } catch (Exception ex) {
             return null;
         }
     }

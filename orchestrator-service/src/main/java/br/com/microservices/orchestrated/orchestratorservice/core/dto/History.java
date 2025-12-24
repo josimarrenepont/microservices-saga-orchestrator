@@ -11,13 +11,12 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class History {
 
     private EEventSource source;
     private ESagaStatus status;
     private String message;
     private LocalDateTime createdAt;
-
 }

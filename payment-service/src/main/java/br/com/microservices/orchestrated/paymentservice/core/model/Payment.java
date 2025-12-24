@@ -1,9 +1,9 @@
 package br.com.microservices.orchestrated.paymentservice.core.model;
 
 import br.com.microservices.orchestrated.paymentservice.core.enums.EPaymentStatus;
-import jakarta.persistence.*;
 import lombok.*;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -26,7 +26,7 @@ public class Payment {
     private String transactionId;
 
     @Column(nullable = false)
-    private int totalItens;
+    private int totalItems;
 
     @Column(nullable = false)
     private double totalAmount;
@@ -42,16 +42,15 @@ public class Payment {
     private LocalDateTime updatedAt;
 
     @PrePersist
-    public void perPersist(){
+    public void prePersist() {
         var now = LocalDateTime.now();
         createdAt = now;
         updatedAt = now;
-        status= EPaymentStatus.PENDING;
+        status = EPaymentStatus.PENDING;
     }
 
     @PreUpdate
-    public void preUpdate(){
+    public void preUpdate() {
         updatedAt = LocalDateTime.now();
     }
-
 }

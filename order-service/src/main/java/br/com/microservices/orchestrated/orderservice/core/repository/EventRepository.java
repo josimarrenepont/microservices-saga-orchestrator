@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface EventRepository extends MongoRepository<Event, String> {
 
-    List<Event> findAllByOrderByCreateAtDesc();
+    List<Event> findAllByOrderByCreatedAtDesc();
 
-    Optional<Event> findTop1ByOrderIdOderByCreatedAtDesc(String orderId);
-    Optional<Event> findTop1ByTransactionIdOderByCreatedAtDesc(String transactionId);
+    Optional<Event> findTop1ByOrderIdOrderByCreatedAtDesc(String orderId);
+    Optional<Event> findTop1ByTransactionIdOrderByCreatedAtDesc(String transactionId);
 }

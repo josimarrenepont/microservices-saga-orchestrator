@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static sun.util.locale.LocaleUtils.isEmpty;
-
+import static org.springframework.util.ObjectUtils.isEmpty;
 
 @Slf4j
 @Service
@@ -28,7 +27,7 @@ public class EventService {
         log.info("Order {} with saga notified! TransactionID: {}", event.getOrderId(), event.getEventHistory());
     }
     public List<Event> findAll(){
-        return repository.findAllByOrderByCreateAtDesc();
+        return repository.findAllByOrderByCreatedAtDesc();
     }
     public Event findByFilters(EventFilters filters){
         validateEmptyFilters(filters);
@@ -39,11 +38,11 @@ public class EventService {
         }
     }
     private Event findByOrderId(String orderId){
-        return repository.findTop1ByOrderIdOderByCreatedAtDesc(orderId)
+        return repository.findTop1ByOrderIdOrderByCreatedAtDesc(orderId)
                 .orElseThrow(() -> new ValidationException("Event not found by orderID"));
     }
     private Event findByTransactionId(String transactionId){
-        return repository.findTop1ByTransactionIdOderByCreatedAtDesc(transactionId)
+        return repository.findTop1ByTransactionIdOrderByCreatedAtDesc(transactionId)
                 .orElseThrow(() -> new ValidationException("Event not found by transactionID"));
     }
     private void validateEmptyFilters(EventFilters filters){
